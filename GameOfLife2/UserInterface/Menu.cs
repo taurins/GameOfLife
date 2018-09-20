@@ -2,7 +2,7 @@
 
 namespace GameOfLife2.UserInterface
 {
-    class Menu
+    public class Menu
     {
         public int GetMenuItem()
         {

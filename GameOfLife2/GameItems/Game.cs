@@ -8,9 +8,14 @@ namespace GameOfLife2.GameItems
 {
     public class Game
     {
+        private Menu Menu;
+        public Game(Menu menu)
+        {
+            Menu = menu;
+        }
         public void StartGame()
         {
-            var MenuItem = new Menu().GetMenuItem();
+             var MenuItem = Menu.GetMenuItem();
 
             if(MenuItem == 1)
             {
