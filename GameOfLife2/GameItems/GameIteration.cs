@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Timers;
-using GameOfLife2.FieldManipulation;
+using GameOfLife2.DataManipulation;
+using GameOfLife2.Models;
 using GameOfLife2.TextManipulation;
 
 namespace GameOfLife2.GameItems
@@ -10,25 +11,30 @@ namespace GameOfLife2.GameItems
     {
         private Timer Iteration = new Timer(500);
         private static List<Field> Fields;
+        private static FieldPrinter Text;
+        private static FieldUpdate Update;
 
-        public GameIteration(List<Field> field)
+        public GameIteration(List<Field> field, FieldPrinter text, FieldUpdate update)
         {
+            Text = text;
             Fields = field;
-            Iteration.AutoReset = false;
-            Iteration.Elapsed += DoStep;
+            Update = update;
 
+            Iteration.AutoReset = false;
+            Iteration.Elapsed += DoStep;            
             Iteration.Start();
         }
 
         private static void DoStep(Object source, ElapsedEventArgs e)
         {
-            var Printer = new Printer();
             foreach (var field in Fields)
             {
                 if (new AliveCells().GetAliveCellsCount(field.Cells) > 0)
                 {
-                    field.UpdateCells();
-                    Printer.PrintField(0, 0, field);
+                    Update.Field = field;
+                    Update.UpdateField();
+                    //field.UpdateCells();
+                    Text.PrintField(0, 0, field);
                 }
             }
             Timer RestartTimer = (Timer)source;

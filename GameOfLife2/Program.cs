@@ -1,4 +1,6 @@
 ﻿using GameOfLife2.GameItems;
+using GameOfLife2.TextManipulation;
+using GameOfLife2.UserInterface;
 
 namespace GameOfLife2
 {
@@ -6,7 +8,7 @@ namespace GameOfLife2
     {
         static void Main(string[] args)
         {
-            var game = new Game();
+            var game = new Game(new Menu(new TextIO()));
             game.StartGame();
         }
     }

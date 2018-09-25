@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
-using GameOfLife2.FieldManipulation;
+using GameOfLife2.DataMAnipilation;
+using GameOfLife2.DataManipulation;
+using GameOfLife2.Models;
 using GameOfLife2.TextManipulation;
 using GameOfLife2.UserInterface;
-using GameOfLife2.Utilities;
 
 namespace GameOfLife2.GameItems
 {
@@ -27,36 +28,39 @@ namespace GameOfLife2.GameItems
         {
 
             var Inputs = GetInputs();
-            if (Inputs.GetHeight() < 0 || Inputs.GetWidth() < 0 || Inputs.GetHeight() == 0 || Inputs.GetWidth() == 0)
-                new Printer().PrintLine("Incorrect values");
+            if (Inputs.X < 0 || Inputs.Y < 0 || Inputs.X == 0 || Inputs.Y == 0)
+               Menu.Text.PrintLine("Incorrect values");
             else
             {
-                new Printer().ClearConsole();
+                Menu.Text.ClearConsole();
 
                 var Fields = new List<Field>();
-                Fields.Add(new Field(Inputs.GetWidth(), Inputs.GetHeight()));
+                //FieldUpdate Update = new FieldUpdate(new Field(Inputs));
+                Field Field = new Field(Inputs);
+                CellPopulator Populator = new CellPopulator(Field);
+                Populator.RandomPopulation();
+                
+                
+                Fields.Add(Field);
 
-                var Iteration = new GameIteration(Fields);
+                var Iteration = new GameIteration(Fields, new FieldPrinter(Menu.Text), new FieldUpdate( Fields[0]));
 
-                new TextReader().ReadLine();
+                Menu.Text.ReadLine();
                 Iteration.Stop();
             }            
         }
 
-        public FieldSize GetInputs()
+        public TwoIntegerVariable GetInputs()
         {
-            var Printer = new Printer();
-            TextReader Reader = new TextReader();
-            var FieldSize = new FieldSize();
+            var FieldSize = new TwoIntegerVariable();
 
-            Printer.Print("Input field width: ");            
+            Menu.Text.Print("Input field width: ");            
 
-            int.TryParse(Reader.ReadLine(), out int x);
+            int.TryParse(Menu.Text.ReadLine(), out FieldSize.X);
 
-            Printer.Print("Input field height: ");            
-            int.TryParse(Reader.ReadLine(), out int y);
+            Menu.Text.Print("Input field height: ");            
+            int.TryParse(Menu.Text.ReadLine(), out FieldSize.Y);
             
-            FieldSize.SetSize(x,y);
             return FieldSize;
         }
     }

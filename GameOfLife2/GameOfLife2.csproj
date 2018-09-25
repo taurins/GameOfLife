@@ -43,17 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FieldManipulation\Cell.cs" />
-    <Compile Include="FieldManipulation\AliveCells.cs" />
-    <Compile Include="FieldManipulation\CellPopulator.cs" />
-    <Compile Include="FieldManipulation\Neighbors.cs" />
+    <Compile Include="DataManipulation\CellUpdate.cs" />
+    <Compile Include="DataManipulation\FieldUpdate.cs" />
+    <Compile Include="Models\Cell.cs" />
+    <Compile Include="DataManipulation\AliveCells.cs" />
+    <Compile Include="DataManipulation\CellPopulator.cs" />
+    <Compile Include="DataManipulation\Neighbors.cs" />
+    <Compile Include="TextManipulation\TextIO.cs" />
     <Compile Include="UserInterface\Menu.cs" />
-    <Compile Include="Utilities\FieldSize.cs" />
+    <Compile Include="Models\TwoIntegerVariable.cs" />
     <Compile Include="GameItems\Game.cs" />
-    <Compile Include="FieldManipulation\Field.cs" />
+    <Compile Include="Models\Field.cs" />
     <Compile Include="GameItems\GameIteration.cs" />
-    <Compile Include="TextManipulation\Printer.cs" />
-    <Compile Include="TextManipulation\TextReader.cs" />
+    <Compile Include="TextManipulation\FieldPrinter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

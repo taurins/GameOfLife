@@ -4,14 +4,20 @@ namespace GameOfLife2.UserInterface
 {
     public class Menu
     {
+        public TextIO Text;
+
+        public Menu(TextIO text)
+        {
+            Text = text;
+        }
+
         public int GetMenuItem()
         {
-            var Printer = new Printer();
-            Printer.PrintLine("Start a new game - 1");
+            Text.PrintLine("Start a new game - 1");
             //Printer.PrintLine("Load an existing game - 2");
             //Printer.PrintLine("Stop application - 3");
-            Printer.Print("Your choice: ");
-            int.TryParse(new TextReader().ReadLine(), out int MenuItem);
+            Text.Print("Your choice: ");
+            int.TryParse(Text.ReadLine(), out int MenuItem);
 
             return MenuItem;
         }
