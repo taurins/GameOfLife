@@ -23,6 +23,7 @@ namespace GameOfLife2.DataManipulation
                 for (int y = 0; y < Field.Cells.GetLength(1); y++)
                 {
                     Cell c = new Cell();
+                    TempField.Cells[x, y] = new Cell();
                     CellUpdate Update = new CellUpdate(c);
                     Update.ChangeStatus(Field.Cells[x, y].IsAlive);
                     Update.ChangeStatus(new Neighbors().GetNeighborCount(Field.Cells, x, y));
