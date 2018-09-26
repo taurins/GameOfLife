@@ -19,7 +19,7 @@ namespace GameOfLife2.TextManipulation
             Text.Print();
             Text.SetCursorPosition(CursorPositionX, CursorPositionY);
 
-            Text.Print($"Alive: {new AliveCells().GetAliveCellsCount(field.Cells)} | Iter: {field.Iteration}");
+            Text.Print($"Alive: {new AliveCells(field.Cells).GetAliveCellsCount()} | Iter: {field.Iteration}");
             Text.PrintLine();
             for (int x = 0; x < field.Cells.GetLength(1); x++)
             {

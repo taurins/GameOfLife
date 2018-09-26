@@ -10,15 +10,15 @@ namespace GameOfLife2.GameItems
     public class GameIteration
     {
         private Timer Iteration = new Timer(500);
-        private static List<Field> Fields;
+       // private static List<Field> Fields;
         private static FieldPrinter Text;
-        private static FieldUpdate Update;
+        private static List<FieldUpdate> Updates;
 
-        public GameIteration(List<Field> field, FieldPrinter text, FieldUpdate update)
+        public GameIteration(List<FieldUpdate> updates, FieldPrinter text)
         {
             Text = text;
-            Fields = field;
-            Update = update;
+            //Fields = field;
+            Updates = updates;
 
             Iteration.AutoReset = false;
             Iteration.Elapsed += DoStep;            
@@ -27,14 +27,15 @@ namespace GameOfLife2.GameItems
 
         private static void DoStep(Object source, ElapsedEventArgs e)
         {
-            foreach (var field in Fields)
-            {
-                if (new AliveCells().GetAliveCellsCount(field.Cells) > 0)
+            foreach (var update in Updates)
+            {                
+                if (new AliveCells(update.Field.Cells).GetAliveCellsCount() > 0)
                 {
-                    Update.Field = field;
-                    Update.UpdateField();
-                    //field.UpdateCells();
-                    Text.PrintField(0, 0, field);
+
+                    //Update.Field = field;
+                    update.UpdateField();
+                    Text.PrintField(0, 0, update.Field);
+                    
                 }
             }
             Timer RestartTimer = (Timer)source;

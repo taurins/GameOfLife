@@ -34,16 +34,16 @@ namespace GameOfLife2.GameItems
             {
                 Menu.Text.ClearConsole();
 
-                var Fields = new List<Field>();
+                var FieldUpdates = new List<FieldUpdate>();
                 //FieldUpdate Update = new FieldUpdate(new Field(Inputs));
                 Field Field = new Field(Inputs);
                 CellPopulator Populator = new CellPopulator(Field);
                 Populator.RandomPopulation();
-                
-                
-                Fields.Add(Field);
+                //Populator.CreateBlinker();
 
-                var Iteration = new GameIteration(Fields, new FieldPrinter(Menu.Text), new FieldUpdate( Fields[0]));
+                FieldUpdates.Add(new FieldUpdate(Field));
+
+                var Iteration = new GameIteration(FieldUpdates, new FieldPrinter(Menu.Text));
 
                 Menu.Text.ReadLine();
                 Iteration.Stop();
