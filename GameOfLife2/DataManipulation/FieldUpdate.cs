@@ -12,7 +12,6 @@ namespace GameOfLife2.DataManipulation
         public FieldUpdate(Field field)
         {
             Field = field;
-            Field.Iteration = 0;
             Neighbors = new Neighbors(Field.Cells);
         }
 

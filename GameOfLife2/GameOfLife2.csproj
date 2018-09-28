@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,10 +48,12 @@
   <ItemGroup>
     <Compile Include="DataManipulation\CellUpdate.cs" />
     <Compile Include="DataManipulation\FieldUpdate.cs" />
+    <Compile Include="FileManipulation\JsonManipulator.cs" />
     <Compile Include="Models\Cell.cs" />
     <Compile Include="DataManipulation\AliveCells.cs" />
     <Compile Include="DataManipulation\CellPopulator.cs" />
     <Compile Include="DataManipulation\Neighbors.cs" />
+    <Compile Include="Models\MenuItem.cs" />
     <Compile Include="TextManipulation\TextIO.cs" />
     <Compile Include="UserInterface\Menu.cs" />
     <Compile Include="Models\TwoIntegerVariable.cs" />
@@ -61,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Timers;
 using GameOfLife2.DataManipulation;
+using GameOfLife2.FileManipulation;
 using GameOfLife2.Models;
 using GameOfLife2.TextManipulation;
 
@@ -40,6 +41,18 @@ namespace GameOfLife2.GameItems
             }
             Timer RestartTimer = (Timer)source;
             RestartTimer.Start();
+        }
+
+        public void Pause()
+        {
+            Iteration.Stop();
+            JsonManipulator json = new JsonManipulator();
+            json.SaveToFile(Updates);
+        }
+
+        public void Continue()
+        {     
+            Iteration.Start();
         }
 
         public void Stop()

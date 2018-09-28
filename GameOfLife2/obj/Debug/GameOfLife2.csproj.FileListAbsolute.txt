@@ -19,3 +19,6 @@ D:\Prakse\GameOfLife\GameOfLife2\obj\Debug\GameOfLife2.pdb
 D:\Prakse\GameOfLife\GameOfLife2\bin\Debug\GameOfLife2.exe.config
 D:\Prakse\GameOfLife\GameOfLife2\bin\Debug\GameOfLife2.exe
 D:\Prakse\GameOfLife\GameOfLife2\bin\Debug\GameOfLife2.pdb
+D:\Prakse\GameOfLife\GameOfLife2\bin\Debug\Newtonsoft.Json.dll
+D:\Prakse\GameOfLife\GameOfLife2\bin\Debug\Newtonsoft.Json.xml
+D:\Prakse\GameOfLife\GameOfLife2\obj\Debug\GameOfLife2.csproj.CopyComplete
