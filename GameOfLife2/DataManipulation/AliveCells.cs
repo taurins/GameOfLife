@@ -5,14 +5,21 @@ namespace GameOfLife2.DataManipulation
 {
     public class AliveCells
     {
-        public int GetAliveCellsCount(Cell[,] cells)
+        private Cell[,] Cells;
+
+        public AliveCells(Cell[,] cells)
+        {
+            Cells = cells;
+        }
+
+        public int GetAliveCellsCount()
         {
             int AliveCells = 0;
-            for (int x = 0; x < cells.GetLength(0); x++)
+            for (int x = 0; x < Cells.GetLength(0); x++)
             {
-                for (int y = 0; y < cells.GetLength(1); y++)
+                for (int y = 0; y < Cells.GetLength(1); y++)
                 {
-                    if (cells[x, y].IsAlive)
+                    if (Cells[x, y].IsAlive)
                     {
                         AliveCells += 1;
                     }

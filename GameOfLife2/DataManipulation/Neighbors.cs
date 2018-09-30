@@ -5,7 +5,12 @@ namespace GameOfLife2.DataManipulation
 {
     public class Neighbors
     {
-        private Cell[,] Cells;
+        public Cell[,] Cells;
+
+        public Neighbors(Cell[,] cells)
+        {
+            Cells = cells;
+        }
 
         public bool CheckOutOfBounds(int X, int Y)
         {
@@ -26,19 +31,42 @@ namespace GameOfLife2.DataManipulation
             return Cells[x, y].IsAlive;
         }
 
-        public int GetNeighborCount(Cell[,] cells , int x, int y)
+        public int GetNeighborCount( int x, int y)
         {
-            Cells = cells;
             int count = 0;
 
-            if (CheckOutOfBounds(x - 1, y)) count += 1;
-            if (CheckOutOfBounds(x - 1, y - 1)) count += 1;
-            if (CheckOutOfBounds(x, y - 1)) count += 1;
-            if (CheckOutOfBounds(x + 1, y - 1)) count += 1;
-            if (CheckOutOfBounds(x + 1, y)) count += 1;
-            if (CheckOutOfBounds(x + 1, y + 1)) count += 1;
-            if (CheckOutOfBounds(x, y + 1)) count += 1;
-            if (CheckOutOfBounds(x - 1, y + 1)) count += 1;
+            if (CheckOutOfBounds(x - 1, y))
+            {
+                count += 1;
+            }
+            if (CheckOutOfBounds(x - 1, y - 1))
+            {
+                count += 1;
+            }
+            if (CheckOutOfBounds(x, y - 1))
+            {
+                count += 1;
+            }
+            if (CheckOutOfBounds(x + 1, y - 1))
+            {
+                count += 1;
+            }
+            if (CheckOutOfBounds(x + 1, y))
+            {
+                count += 1;
+            }
+            if (CheckOutOfBounds(x + 1, y + 1))
+            {
+                count += 1;
+            }
+            if (CheckOutOfBounds(x, y + 1))
+            {
+                count += 1;
+            }
+            if (CheckOutOfBounds(x - 1, y + 1))
+            {
+                count += 1;
+            }
 
             return count;
         }

@@ -25,9 +25,29 @@ namespace GameOfLife2.DataManipulation
                     Field.Cells[x, y] = new Cell();
                     CellUpdate = new CellUpdate(Field.Cells[x, y]);
                     if (r.Next(2) == 1)
-                    {
-                        
+                    {                        
                        CellUpdate.ChangeStatus(true);
+                    }
+                    else
+                    {
+                        CellUpdate.ChangeStatus(false);
+                    }
+                    
+                }
+            }
+        }
+
+        public void CreateBlinker()
+        {
+            for (int x = 0; x < Field.Cells.GetLength(0); x++)
+            {
+                for (int y = 0; y < Field.Cells.GetLength(1); y++)
+                {
+                    Field.Cells[x, y] = new Cell();
+                    CellUpdate = new CellUpdate(Field.Cells[x, y]);
+                    if (x == 2 && ((y == 1) || (y == 2) || (y == 3)))
+                    {
+                        CellUpdate.ChangeStatus(true);
                     }
                     else
                     {
@@ -35,6 +55,7 @@ namespace GameOfLife2.DataManipulation
                     }
                 }
             }
+
         }
 
         //public void GosperGliderGunPopulation(Cell[,] cells)

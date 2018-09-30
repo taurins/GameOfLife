@@ -43,5 +43,16 @@ namespace GameOfLife2.TextManipulation
         {
             Console.Write(new string(' ', Console.WindowWidth));
         }
+
+        public int SaveCurrentConsolePosition()
+        {
+            int Top = Console.WindowTop;
+            return Top;            
+        }
+
+        public void SetCurrentConsolePostition(int top)
+        {
+            Console.SetWindowPosition(0, top);
+        }
     }
 }

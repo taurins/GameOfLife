@@ -1,4 +1,6 @@
-﻿using GameOfLife2.TextManipulation;
+﻿using GameOfLife2.Models;
+using GameOfLife2.TextManipulation;
+using System;
 
 namespace GameOfLife2.UserInterface
 {
@@ -11,15 +13,14 @@ namespace GameOfLife2.UserInterface
             Text = text;
         }
 
-        public int GetMenuItem()
+        public MenuItem GetMenuItem()
         {
             Text.PrintLine("Start a new game - 1");
-            //Printer.PrintLine("Load an existing game - 2");
-            //Printer.PrintLine("Stop application - 3");
+            Text.PrintLine("Load a saved game - 2");
+            //Text.PrintLine("Stop application - 3");
             Text.Print("Your choice: ");
-            int.TryParse(Text.ReadLine(), out int MenuItem);
-
-            return MenuItem;
+            MenuItem item = (MenuItem)Enum.Parse(typeof(MenuItem) ,Text.ReadLine());
+            return item;
         }
     }
 }

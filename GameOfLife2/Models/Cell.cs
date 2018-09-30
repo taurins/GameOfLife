@@ -1,5 +1,4 @@
-﻿
-namespace GameOfLife2.Models
+﻿namespace GameOfLife2.Models
 {
     public class Cell
     {
