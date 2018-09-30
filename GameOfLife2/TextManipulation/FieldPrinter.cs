@@ -15,6 +15,8 @@ namespace GameOfLife2.TextManipulation
 
         public void PrintField(int CursorPositionX, int CursorPositionY, Field field)
         {
+            int Top = Text.SaveCurrentConsolePosition();
+
             Text.SetCursorPosition(CursorPositionX, CursorPositionY);
             Text.Print();
             Text.SetCursorPosition(CursorPositionX, CursorPositionY);
@@ -29,6 +31,8 @@ namespace GameOfLife2.TextManipulation
                 }
                 Text.PrintLine();
             }
+
+            Text.SetCurrentConsolePostition(Top);
         }
 
        

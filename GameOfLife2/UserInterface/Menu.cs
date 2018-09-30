@@ -8,10 +8,6 @@ namespace GameOfLife2.UserInterface
     {
         public TextIO Text;
 
-        //public Menu()
-        //{
-        //}
-
         public Menu(TextIO text)
         {
             Text = text;
